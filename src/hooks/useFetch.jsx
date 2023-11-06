@@ -35,5 +35,5 @@ const useFetch = (url) => {
   return { data, loading, error };
 };
 
-// Export the custom hook for use in other components
+
 export default useFetch;
