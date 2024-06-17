@@ -10,6 +10,7 @@ import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/pageNotFound";
+import Footer from "./components/footer/Footer";
 
 
 
@@ -59,6 +60,7 @@ function App() {
         <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
