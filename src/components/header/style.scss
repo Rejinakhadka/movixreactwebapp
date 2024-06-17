@@ -2,18 +2,18 @@
 
 .header {
     position: fixed;
-    transform: translateY(0);
+    // transform: translateY(0);
     width: 100%;
     height: 60px;
     z-index: 1;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
     transition: all ease 0.5s;
     z-index: 2;
     &.top {
         background: rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(3.5px);
-        -webkit-backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px); /*Including both -webkit-backdrop-filter and backdrop-filter ensures that the effect works on a wider range of browsers, covering both WebKit and non-WebKit browsers*/
     }
     &.show {
         background-color: var(--black3);

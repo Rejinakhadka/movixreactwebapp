@@ -11,7 +11,7 @@ import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
 
-let filters = {};
+let filters = {};  //An object used to store filters for API requests.
 
 const sortbyData = [
     { value: "popularity.desc", label: "Popularity Descending" },

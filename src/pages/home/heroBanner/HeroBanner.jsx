@@ -25,7 +25,7 @@ const HeroBanner = () => {
   //This is for when you click enter
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
-      navigate(`/search/${query}`); //URl with dynamic params i.e query
+      navigate(`/search/${query}`); //URl with dynamic params i.e query  url is appended in localhost/
     }
   };
   //this is for search button

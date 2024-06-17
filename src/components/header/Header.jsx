@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
@@ -20,22 +20,31 @@ const Header = () => {
 
 //this is for when we change location suppose movies or tv shows then it scrolls to top of next page
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0);  //The scrollTo() method scrolls the document to specified coordinates.
 }, [location]);   
 
-  const controlNavbar = () => {
-    if (window.scrollY > 200) {
-        if (window.scrollY > lastScrollY && !mobileMenu) {
-            setShow("hide");
-        } else {
-            setShow("show");
-        }
-    } else {
-        setShow("top");
-    }
-    setLastScrollY(window.scrollY);
+const controlNavbar = () => {
+  // Check if the vertical scroll position is greater than 200 pixels. window.scrollY is a method that checks the vertical scrolling of a browser
+  if (window.scrollY > 200) {
+      // Check if scrolling down and not in mobile menu mode
+      if (window.scrollY > lastScrollY && !mobileMenu) {
+          // If scrolling down and not in mobile menu mode, hide the navbar
+          setShow("hide");
+      } else {
+          // If scrolling up or in mobile menu mode, show the navbar
+          setShow("show");
+      }
+  } else {
+      // If the vertical scroll position is less than or equal to 200 pixels, show the navbar
+      setShow("top");  //because top css needs to be applied
+  }
+  
+  // Update the last scroll position to the current scroll position
+  setLastScrollY(window.scrollY);
 };
 
+
+//this is for when we scroll then it slowly hides where there is scroll event and controlNavbar function with lastScrolly as a dependency array
   useEffect(() =>{
     window.addEventListener("scroll", controlNavbar);
     return () =>
@@ -48,7 +57,7 @@ const Header = () => {
     if (event.key === "Enter" && query.length > 0) {
         navigate(`/search/${query}`);
         setTimeout(() => {
-            setShowSearch(false);
+            setShowSearch(false);  //because it will hide after going to search page
         }, 1000);
     }
 };
@@ -74,14 +83,15 @@ const navigationHandler = (type) => {
 
 
   return (
-    <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
+    //Dynamic CSS classes .The className attribute dynamically adds CSS classes based on the values of state variables (mobileMenu, show). This is a common technique for dynamic styling in React.
+    <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}> 
       <ContentWrapper>
         <div className="logo" onClick={() =>navigate("/")}>
           <img src={logo} alt=""></img>
         </div>
         <ul className="menuItems">
-          <li className="menuItem" onClick={() =>
-          navigationHandler("movie")}>Movies</li>
+          <li className="menuItem" onClick={() => //callback function is a function that is passed as an argument in  another function or argument
+          navigationHandler("movie")}>Movies</li>  
           <li className="menuItem" onClick= {() =>
           navigationHandler("tv")}>TV Shows</li>
           <li className="menuItem">

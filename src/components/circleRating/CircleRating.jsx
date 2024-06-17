@@ -9,7 +9,7 @@ const CircleRating = ({ rating }) => {
         <div className="circleRating">
             <CircularProgressbar
                 value={rating}
-                maxValue={10}  //byDefault it is 100 but we are giving 10
+                maxValue={10}  
                 text={rating}
                 styles={buildStyles({
                     pathColor:

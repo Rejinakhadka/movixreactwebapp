@@ -61,7 +61,7 @@ const Carousel = ({ data, loading, endpoint }) => {
             {data?.map((item) => {
               const posterUrl = item.poster_path
                 ? url.poster + item.poster_path
-                : PosterFallback;
+                : PosterFallback;  //yo chai poster ko url lina ko lagi
               return (
                 <div key={item.id} className="carouselItem" onClick={() => navigate(
                   `/${item.media_type || endpoint}/${item.id}`
