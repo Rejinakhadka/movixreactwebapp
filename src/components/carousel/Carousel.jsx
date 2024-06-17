@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs"; // this is for date
 
-import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
+
+import "./style.scss";
+import ContentWrapper from "../contentWrapper/ContentWrapper";
 import CircleRating from "../circleRating/CircleRating";
 import Genres from "../genres/Genres";
-import "./style.scss";
 
 const Carousel = ({ data, loading, endpoint }) => {
   const carouselContainer = useRef(); // whenever we pass this in any div then we get a reference to that div
