@@ -12,6 +12,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper.js
 import Genres from "../../../components/genres/Genres.jsx";
 import CircleRating from "../../../components/circleRating/CircleRating.jsx";
 import VideoPopup from "../../../components/videoPopup/VideoPopup.jsx";
+import useFetch from "../../../hooks/useFetch.js";
 
 const DetailsBanner = ({ video, crew }) => {
   const [show, setShow] = useState(false);
